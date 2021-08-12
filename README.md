@@ -84,3 +84,4 @@
 02  git init // 生成本地git管理,并建立一个隐藏.git目录
 03  git add . //添加当前目录中的所有文件到索引
 04  git commit -m "first commit" //提交到本地源码库，并附加提交注释
+05  git remote add origin https://github.com/chape/test.git //添加到远程项目，别名为origin
