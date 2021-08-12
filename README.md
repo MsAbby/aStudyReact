@@ -134,7 +134,8 @@ shouldComponentUpdate(nextProps, nextState) {
 ````
 
 ## axios 远程请求数据
-01 独立程序-和许多项目可以结合
+01 独立程序-和许多项目可以结合 <br>
+02 使用位置： 推荐componentDidMount()
 
 
 
