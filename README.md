@@ -4,7 +4,7 @@
 
 ## JSX
 01 是javascript 和 xml的结合， 虚拟dom ， 当遇到< 当html解析， 当遇到 { 当javascript 解析<br>
-02 总结： 可以在react Javascript 中写html 代码<br>
+02 总结1： 可以在react Javascript 中写html 代码<br>
 03 踩坑1： 注释 {/*  这是注释 */} - 推荐<br>
 04 踩坑2:  类： className="name"<br>
 05 踩坑3： 解析html标签： dangerouslySetInnerHTML={{__html: item}}<br>
@@ -23,16 +23,22 @@
 ## 事件绑定
 01 触发： onChange<br>
 02 onChange={this.inputChange.bind(this)}: 定义this的指向， 方法中才不会报错<br>
-03 赋值： this.setState({<br>
-            key: value<br>
-         })<br>
+03 赋值： <br>
+````
+    this.setState({
+        key: value<br>
+    })
+````
 
 
 01 触发 onClick<br>
 02 onClick={this.btnClick.bind(this)}<br>
-03 数组赋值: this.setState({<br>
-                key: [...value, value2]<br>
-            })<br>
+03 数组赋值: <br/>
+````
+    this.setState({
+        key: [...value, value2]
+    })
+````
 
 04 不允许直接操作state 里面的值。后期会有问题<br>
 
@@ -78,6 +84,59 @@
    灰色： 说明网站不是react技术开发的<br>
    黑色： 说明网站是react技术开发的<br>
    红色： 说明我们正在访问react程序<br>
+
+
+## ref属性的使用
+01 <br>
+02 坑1: 虚拟dom渲染也是有时间的, 异步<br>
+02 解决1: 在setState后面加流回调函数<br>
+````
+this.setState({}, () => {})
+
+````
+
+## react 生命周期
+00 生命周期定义： 在某一时刻，可以自动执行的函数 <br>
+01 分为四个大阶段： Initialization(初始化),  Mounting（虚拟dom挂载阶段）, Updation（组件更新时）, Unmounting(卸载dom)
+
+### 02 Initialzation: 
++ construtor： 属于es6的语法，不属于 react 生命周期，可以当作生命周期的初始化阶段（props和state）
+### 03 Mounting: 
++ componentWillMount: dom挂载之前执行的 
++ render: 渲染，state状态或者属性变化，才会发生渲染
++ componentDidMount： dom 挂载完了，执行函数
+### 04 Updation:
+| states:
+
++ shouldComponentUptate: return true： 渲染之前； return false: 不往下执行
++ componentWillUpdate: (废弃了)
++ render: 渲染：
++ componentDidUpdate: 组件更新完毕后， 虚拟dom已经渲染完毕
+
+| props:（比较难的）
++ componentWillReceiveProps: 直接写不显示， 满足两个条件，第一次存在于dom中，函数不会被执行，如果已经存在dom中，函数才会执行
++ shouldComponentUpdate: 同上
++ componentWillUpdate: 同上
++ render: 同上
++ componentDidUpdate: 同上
+### 05 Unmounting:
++ componentWillUnmount: 当我们组件将要被删除， 但是又还没有被删除
+### 06 改善组件性能
++ shouldComponentUpdate: 两个参数，知道变化
+````
+shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.content !== this.props.content)  {
+        retun true
+    } else {
+        return false
+    }
+}
+````
+
+## axios 远程请求数据
+01 独立程序-和许多项目可以结合
+
+
 
 ## 将本地存在项目一次性push至远程仓库
 01  touch README.md //新建说明文件<br>

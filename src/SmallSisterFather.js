@@ -10,7 +10,14 @@ class SmallSisterFather extends Component {
             list: ['基础按摩', '精油推背', '脚底按摩']
         }
     }
+    // dom （组件）挂载之前
+    componentWillMount() {
+        console.log('000')
+    }
+    
+    // 状态和属性变化时，会渲染
     render() {
+        console.log('挂载中')
         return (
             <Fragment>
                 <div>
@@ -25,6 +32,11 @@ class SmallSisterFather extends Component {
                 <SmallSisterItem content={this.state.list} deleteList={this.deleteList.bind(this)}></SmallSisterItem>
             </Fragment>
         )
+    }
+
+    // dom（组件）挂载完成
+    componentDidMount() {
+        console.log('22')
     }
 
     // 触发方法
