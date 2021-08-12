@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// 写法一： 解构赋值(ES6)
+import React, {Component} from 'react'
+// 写法二： 传统
+// import React from 'react'
+// const Component = React.Component
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// 写一个类， 继承Component
+
+// jsx写法
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <ul className="my-list">
+          <li>hello</li>
+          <li>world</li>
+          <li>{true? 'aaaaa': 'sdfsdf'}</li>
+        </ul>
+      </div>
+    )
+  }
 }
 
-export default App;
+// 传统写法
+// var li1 = React.createElement('li', null, 'hello')
+// var li12 = React.createElement('li', null, 'world')
+// var root = React.createElement('ul', {className: 'my-list'}, li1, li2)
+
+export default App

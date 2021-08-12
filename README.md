@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+## React学习
+01 组件化开发， 复用性好
+02 无需关注dom, 直接关注数据， 数据驱动
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## JSX
+01 是javascript 和 xml的结合， 虚拟dom ， 当遇到< 当html解析， 当遇到 { 当javascript 解析
+02 总结： 可以在react Javascript 中写html 代码
+03 踩坑1： 注释 {/*  这是注释 */} - 推荐
+04 踩坑2:  类： className="name"
+05 踩坑3： 解析html标签： dangerouslySetInnerHTML={{__html: item}}
+06 踩坑4:  label标签激活input htmlFor
 
-## Available Scripts
+## 自定义组件
+01 必须大写字母开头， 否则报错 App
 
-In the project directory, you can run:
+## Fragment
+01 代替最外层div
 
-### `npm start`
+## 数据驱动
+01 constructor 中定义state
+02 {} - 字面量
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 事件绑定
+01 触发： onChange
+02 onChange={this.inputChange.bind(this)}: 定义this的指向， 方法中才不会报错
+03 赋值： this.setState({
+            key: value
+         })
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+01 触发 onClick
+02 onClick={this.btnClick.bind(this)}
+03 数组赋值: this.setState({
+                key: [...value, value2]
+            })
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+04 不允许直接操作state 里面的值。后期会有问题
 
-### `npm run build`
+## this指向的问题
+01 btnClick.bind(this)
+02 在constructor(props) {
+    super(props)
+    this.btnClick = this.btnClick.bind(this) // 便于性能优化
+}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 循环js
+01 this.state.value.map((item, index) => {})
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 快速生成代码插件simple React Snippets
+｜ 代码编写速度：
+01 imrc: import React, {Component} from 'react  
+02 cc: 快速继承方法， 导出
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## 组建拆分，组建通信
+01 父传子： 子接收 props, 父传递就是组建身上写属性
+02 子传父： 都是pros, 方法写在子组件身上， react明确规定子组建不可以干预父祖件内容
+03 prop-types  父子组件传值校验： PropTypes.string (校验属性类型-子组件中设置)
+04 prop-types  父子组件传值校验： PropTypes.string.isRequired (校验必传-子组件中设置)
+05 prop-types  父子组件传值校验： PropTypes.string.isRequired (默认值-子组件中设置)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 单向数据流
+01 定义： 父组件传递数据给子组件的， 但是传递过去只能使用，不能修改
+02 原因： 防止数据冲突
+03 解决： 传递方法
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 结合jquery使用
+01 完全可以的
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 函数式编程
+01 代码清晰： 每一个函数代表一个功能
+02 测试友好： 便于单元测试
+03 大型开发配合更好
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 调试react
+?? console.log: 调试效率低
+01 React Developer Tools: facebook出的
+   灰色： 说明网站不是react技术开发的
+   黑色： 说明网站是react技术开发的
+   红色： 说明我们正在访问react程序
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 将本地存在项目一次性push至远程仓库
+01  touch README.md //新建说明文件
+02  git init // 生成本地git管理,并建立一个隐藏.git目录
+03  git add . //添加当前目录中的所有文件到索引
+04  git commit -m "first commit" //提交到本地源码库，并附加提交注释
