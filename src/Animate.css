@@ -1,0 +1,66 @@
+/* .hide {
+    animation: hideItem 2s ease-in forwards;
+}
+.show {
+    animation: showItem 2s ease-in forwards;
+    transition: all 1.5s ease-in;
+}
+
+@keyframes hideItem {
+    0% {
+        opacity: 1;
+        color: yellow;
+    }
+    50% {
+        opacity: 0.5;
+        color: orange;
+    }
+    100% {
+        opacity: 0;
+        color: green;
+    }
+}
+
+@keyframes showItem {
+    0% {
+        opacity: 0;
+        color: red;
+    }
+    50% {
+        opacity: 0.5;
+        color: pink;
+    }
+    100% {
+        opacity: 1;
+        color: orange;
+    }
+} */
+
+/* 入场 */
+.boss-text-enter {
+    opacity: 0;
+}
+/* 入场到结束的样式 */
+.boss-text-enter-active {
+    opacity: 1;
+    transition: opacity 2000ms;
+}
+/* 入场结束样式 */
+.boss-text-enter-done {
+    opacity: 1;
+}
+
+
+/* 出场 */
+.boss-text-exit {
+    opacity: 1;
+}
+/* 出场到结束的样式 */
+.boss-text-exit-active {
+    opacity: 0;
+    transition: opacity 2000ms;
+}
+/* 出场结束样式 */
+.boss-text-exit-done {
+    opacity: 0;
+}

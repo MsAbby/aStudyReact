@@ -1,6 +1,7 @@
 ## React学习
 01 组件化开发， 复用性好<br>
 02 无需关注dom, 直接关注数据， 数据驱动<br>
+03 有极好的开发生态<br>
 
 ## JSX
 01 是javascript 和 xml的结合， 虚拟dom ， 当遇到< 当html解析， 当遇到 { 当javascript 解析<br>
@@ -137,7 +138,13 @@ shouldComponentUpdate(nextProps, nextState) {
 01 独立程序-和许多项目可以结合 <br>
 02 使用位置： 推荐componentDidMount()
 
+## Easy-Mock 造数据
+01 打开easy-mock 网站(网站经常挂)
+02 mock.js 本地可以
 
+## react 简单css3动效果
+01 keyframes
+02 react-transition-group: 推荐，官方出的，完善的api {组成： Transtion, CSSTransition, TransitionGroup}
 
 ## 将本地存在项目一次性push至远程仓库
 01  touch README.md //新建说明文件<br>
