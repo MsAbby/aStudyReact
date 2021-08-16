@@ -1,3 +1,5 @@
+# React 基础
+
 ## React学习
 01 组件化开发， 复用性好<br>
 02 无需关注dom, 直接关注数据， 数据驱动<br>
@@ -153,3 +155,34 @@ shouldComponentUpdate(nextProps, nextState) {
 04  git commit -m "first commit" //提交到本地源码库，并附加提交注释<br>
 05  git remote add origin https://github.com/MsAbby/aStudyReact.git //添加到远程项目，别名为origin<br>
 06  git push -u origin master // 把本地源码库push到github 别名为origin的远程项目中，确认提交<br>
+
+
+# Redux基础
+
+## Redux
+01 状态管理： 管理数据状态和UI状态<br>
+02 angular 和 vue 也可以用<br>
+03 flux 和 redux 关系： redux是flux的升级版本<br>
+04 工作流程：<br>
+````
+    React Component -> ActionCreaturs -> Store  -> Reducer -> Store -> React Component
+````
+05 新建文件： src/store/index.js<br>
+06 创建仓库： createStore<br>
+````
+import {createStore} from 'redux'
+const store = createStore()
+````
+07 建立reducer： src/store/reducer.js<br>
+
+## 从 Store 中获取 state 一般采用下面的方式
+01 store.getState<br>
+
+## redux 插件- redux DevTools
+01 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()<br>
+
+## ant design
+01 行内样式： 小驼峰
+
+
+
