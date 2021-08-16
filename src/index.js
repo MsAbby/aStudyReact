@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom'
 // import SmallSister from './SmallSister'
 // import SmallSisterFater from './SmallSisterFather'
 // import Animation from './Animate'
-import StudyRedux from './pages/StudyRedux'
+// import StudyRedux from './pages/StudyRedux'
+import StudyReduxSplitFather from './pages/StudyReduxSplitFather'
 
 // ReactDOM.render(<App />, document.getElementById('root'))
-ReactDOM.render(<StudyRedux/>, document.getElementById('root'))
+ReactDOM.render(<StudyReduxSplitFather/>, document.getElementById('root'))

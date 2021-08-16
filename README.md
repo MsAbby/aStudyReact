@@ -157,9 +157,14 @@ shouldComponentUpdate(nextProps, nextState) {
 06  git push -u origin master // 把本地源码库push到github 别名为origin的远程项目中，确认提交<br>
 
 
+
+
+
+
 # Redux基础
 
 ## Redux
+00 统一管理我们的状态嘛
 01 状态管理： 管理数据状态和UI状态<br>
 02 angular 和 vue 也可以用<br>
 03 flux 和 redux 关系： redux是flux的升级版本<br>
@@ -180,6 +185,14 @@ const store = createStore()
 
 ## redux 插件- redux DevTools
 01 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()<br>
+
+## redux 书写小技巧
+01 新建文件 src/store/actionType 常量名写在这里面，这样代码会有报错提示<br>
+02 新建文件 src/store/actionCreator 所有派发的action 写在这里，比较一目了然<br>
+
+## redux 小坑
+01 reducer 这里只能接收state , 不能改变state
+02 reducer 是一个纯函数： 只依赖于传入参数，值由传入的值决定
 
 ## ant design
 01 行内样式： 小驼峰
