@@ -136,9 +136,23 @@ shouldComponentUpdate(nextProps, nextState) {
 }
 ````
 
+
+
+# axios
+
 ## axios 远程请求数据
+00 npm i -S axios
 01 独立程序-和许多项目可以结合 <br>
 02 使用位置： 推荐componentDidMount()
+````
+componentDidMount(){
+    axios.get('url).then((res)=> {
+        console.log(res)
+        const action = bbbbb(data)
+        store.dispatch(action)
+    })
+}
+````
 
 ## Easy-Mock 造数据
 01 打开easy-mock 网站(网站经常挂)
@@ -191,11 +205,58 @@ const store = createStore()
 02 新建文件 src/store/actionCreator 所有派发的action 写在这里，比较一目了然<br>
 
 ## redux 小坑
-01 reducer 这里只能接收state , 不能改变state
-02 reducer 是一个纯函数： 只依赖于传入参数，值由传入的值决定
+01 reducer 这里只能接收state , 不能改变state<br>
+02 reducer 是一个纯函数： 只依赖于传入参数，值由传入的值决定<br>
+03 鉴于reducer 是一个纯函数，所以有些东西写在中间件里面
+
+## store
+01 仅支持同步数据流
+02 异步支持需要 redux中间件redux-thunk
+
+
+## redux 中间件
+### redux-thunk
+01 定义1： 在action 到达 reducer之前 需要一些额外操作， 日志报告，崩溃报告，异步接口或路由<br>
+01 定义2: 就是可以接受一个返回函数的action creator<br>
+02 redux中间件插件 redux-thunk<br>
+03 安装： npm i -S redux-thunk<br>
+04 配置很重要： 在store/index<br>
+````
+<!-- 又一个坑要兼容： devTools - 使用增强函数 -->
+<!-- 又要中间件： redux-thunk -->
+
+import { createStore, applyMiddleware, compose } from 'redux'
+import reducer from'./reducer'
+import thunk from 'redux-thunk'
+
+// 增强函数(compose )
+const composeEnhancers =  window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__?window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__({}): compose
+
+const enhancer = composeEnhancers(applyMiddleware(thunk))
+const store = createStore(reducer, enhancer)
+
+export default store
+````
+
+05 相当于action 可以返回一个方法（柯里化过的方法）
+
+### redux-saga
+01 安装： npm i -S redux-saga<br>
 
 ## ant design
-01 行内样式： 小驼峰
+01 行内样式： 小驼峰<br>
+
+
+
+
+
+# 无状态组件
+## 无状态组件
+00 定义： 就是一个标准的方法<br>
+01 优点： 提升性能<br>
+02 优点： 没有状态<br>
+03 优点： 没有业务逻辑只有UI<br>
+
 
 
 
